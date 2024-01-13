@@ -83,7 +83,8 @@ router
 
 // GET /api/users/:id/posts
 // Retrieves all posts by a user with the specified id.
-router.route("/:id/posts")
+router
+  .route("/:id/posts")
   .get((req, res, next) => {
     const user = users.find((u) => u.id == req.params.id);
     if (user) {
