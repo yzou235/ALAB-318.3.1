@@ -83,6 +83,7 @@ router
 
 // GET /api/users/:id/posts
 // Retrieves all posts by a user with the specified id.
+// to access: http://localhost:3000/api/users/1/posts?api-key=perscholas
 router
   .route("/:id/posts")
   .get((req, res, next) => {
