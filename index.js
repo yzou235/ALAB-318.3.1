@@ -39,11 +39,19 @@ apiKeys = ["perscholas", "ps-example", "hJAsknw-L198sAJD-l3kasx"];
 app.use("/api", function (req, res, next) {
   var key = req.query["api-key"];
 
+  console.log("API Key provided:", key); // Add this line for debugging
+
   // Check for the absence of a key.
-  if (!key) next(error(400, "API Key Required"));
+  if (!key) {
+    console.log("No API Key provided"); // Add this line for debugging
+    next(error(400, "API Key Required"));
+  }
 
   // Check for key validity.
-  if (apiKeys.indexOf(key) === -1) next(error(401, "Invalid API Key"));
+  if (apiKeys.indexOf(key) === -1) {
+    console.log("Invalid API Key:", key); // Add this line for debugging
+    next(error(401, "Invalid API Key"));
+  }
 
   // Valid key! Store it in req.key for route access.
   req.key = key;
@@ -114,5 +122,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port: ${port}.`);
+  console.log(`Server listening on port: ${port}. http://localhost:${port}`);
 });

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const users = require("../data/users");
 const posts = require("../data/posts");
 const error = require("../utilities/error");
 
@@ -76,5 +76,7 @@ router
     if (post) res.json(post);
     else next();
   });
+
+
 
 module.exports = router;
