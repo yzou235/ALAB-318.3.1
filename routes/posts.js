@@ -86,28 +86,14 @@ router
 // to access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
 router.route("/")
   .get((req, res) => {
-    const user = users.find((u) => u.id == req.query.id);
+    const user = users.find((u) => u.id == req.query.userId);
 
     if (user) {
-      const userPosts = posts.filter((post) => post.userId == req.query.id);
-
-      const links = [
-        {
-          href: `/api/posts?${req.query.id}`,
-          rel: "",
-          type: "PATCH",
-        },
-        {
-          href: `/api/posts?${req.query.id}`,
-          rel: "",
-          type: "DELETE",
-        }
-      ];
-
-      res.json({ userPosts, links });
+      const userPosts = posts.filter((post) => post.userId == req.query.userId);
+      res.json(userPosts);
     } else {
       next();
     }
-  })
+  });
 
 module.exports = router;

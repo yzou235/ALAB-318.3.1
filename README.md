@@ -10,7 +10,7 @@
 
 - Retrieves all posts by a user with the specified postId.
 - **Related Code:** See `posts.js` in the `routes` folder.
-- To Access: http://localhost:3000/api/posts?api-key=perscholas
+- To Access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
 
 3. `GET /comments`
 
@@ -39,10 +39,14 @@
 6. `PATCH /comments/:id`
 
 - Used to update a comment with the specified id with a new body.
+- **Related Code:** See `comments.js` in the `routes` folder.
+- To Access: http://localhost:3000/api/comments/1?api-key=perscholas
 
 7. `DELETE /comments/:id`
 
 - Used to delete a comment with the specified id.
+- **Related Code:** See `comments.js` in the `routes` folder.
+- To Access: http://localhost:3000/api/comments/1?api-key=perscholas
 
 8. `GET /comments?userId=<VALUE>`
 

@@ -48,5 +48,8 @@ router
         if (comment) res.json({ comment, links });
         else next();
     })
+    .post((req, res) => {
+        
+    })
 
 module.exports = router;

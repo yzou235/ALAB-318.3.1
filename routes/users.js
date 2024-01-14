@@ -91,21 +91,7 @@ router
     const user = users.find((u) => u.id == req.params.id);
     if (user) {
       const userPosts = posts.filter((post) => post.userId == req.params.id);
-
-      const links = [
-        {
-          href: `/api/users/${req.params.id}/posts`,
-          rel: "",
-          type: "PATCH",
-        },
-        {
-          href: `/api/users/${req.params.id}/posts`,
-          rel: "",
-          type: "DELETE",
-        },
-      ];
-
-      res.json( {userPosts, links });
+      res.json(userPosts);
     } else {
       next();
     }
