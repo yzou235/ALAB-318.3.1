@@ -3,19 +3,19 @@
 1. `GET /api/users/:id/posts`
 
 - Retrieves all posts by a user with the specified id.
-- Related code: See `users.js` in the `routes` folder.
+- **Related Code:** See `users.js` in the `routes` folder.
 - To Access: http://localhost:3000/api/users/1/posts?api-key=perscholas
 
 2. `GET /api/posts?userId=<VALUE>`
 
 - Retrieves all posts by a user with the specified postId.
-- Related code: See `comments.js` in the `routes` folder.
+- **Related Code:** See `posts.js` in the `routes` folder.
 - To Access: http://localhost:3000/api/comments?api-key=perscholas
 
 3. `GET /comments`
 
 - Retrieves all comments.
-- Related code: See `posts.js` in the `routes` folder.
+- **Related Code:** See `comments.js` in the `routes` folder.
 - To Access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
 
 4. `POST /comments`
@@ -25,6 +25,10 @@
   - userId: the id of the user that created the comment.
   - postId: the id of the post the comment was made on.
   - body: the text of the comment.
+- **Related Code:** See `comments.js` in the `routes` folder.
+- Has successfully tested it in POSTMAN.
+  - Authorization - Type: "API Key"; Key: "api-key"; Value: "perscholas"; Add To: "Query Params"
+  - raw Body in JSON:`{"userId": 3, "postId": 2, "content": "This is a test comment."}`
 
 5. `GET /comments/:id`
 
