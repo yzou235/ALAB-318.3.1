@@ -11,12 +11,21 @@ router
     .get((req, res) => {
         // console.log("GET /comments route accessed");
         // res.json(comments);
+
         if (req.query.userId) {
+            // GET /comments/:id
+            // retrieve comments by the user with the specified userId
             const userComments = comments.filter(comment => comment.userId == req.query.userId);
             res.json(userComments);
+        } else if (req.query.postId) {
+            // GET /comments?postId=<VALUE>
+            // Retrieves comments made on the post with the specified postId.
+            const postComments = comments.filter(comment => comment.postId == req.query.postId);
+            res.json(postComments);
         } else {
             res.json(comments);
         }
+
     })
     // POST /comments
     .post((req, res) => {

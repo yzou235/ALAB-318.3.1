@@ -59,6 +59,9 @@
 9. `GET /comments?postId=<VALUE>`
 
 - Retrieves comments made on the post with the specified postId.
+- **Related Code:** See `comments.js` in the `routes` folder.
+  - used else if statement and query parameter in the root route
+- To Access: http://localhost:3000/api/comments?postId=1&api-key=perscholas
 
 10. `GET /posts/:id/comments`
 
