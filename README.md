@@ -33,6 +33,8 @@
 5. `GET /comments/:id`
 
 - Retrieves the comment with the specified id.
+- **Related Code:** See `comments.js` in the `routes` folder.
+- To Access: http://localhost:3000/api/comments/1?api-key=perscholas
 
 6. `PATCH /comments/:id`
 
