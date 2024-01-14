@@ -27,4 +27,26 @@ router
         } else res.json({ error: 'Insufficient Data' });
     });
 
+router
+    .route('/:id')
+    // GET /comments/:id
+    // Retrieves the comment with the specified id
+    .get((req, res) => {
+        const comment = comments.find((c) => c.id == req.params.id);
+        const links = [
+            {
+                href: `/${req.params.id}`,
+                rel: "",
+                type: "PATCH",
+            },
+            {
+                href: `/${req.params.id}`,
+                rel: "",
+                type: "DELETE",
+            },
+        ];
+        if (comment) res.json({ comment, links });
+        else next();
+    })
+
 module.exports = router;

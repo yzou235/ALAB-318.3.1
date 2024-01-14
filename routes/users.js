@@ -96,7 +96,12 @@ router
         {
           href: `/api/users/${req.params.id}/posts`,
           rel: "",
-          type: "GET",
+          type: "PATCH",
+        },
+        {
+          href: `/api/users/${req.params.id}/posts`,
+          rel: "",
+          type: "DELETE",
         },
       ];
 

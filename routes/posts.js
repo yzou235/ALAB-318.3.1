@@ -95,7 +95,12 @@ router.route("/")
         {
           href: `/api/posts?${req.query.id}`,
           rel: "",
-          type: "GET",
+          type: "PATCH",
+        },
+        {
+          href: `/api/posts?${req.query.id}`,
+          rel: "",
+          type: "DELETE",
         }
       ];
 

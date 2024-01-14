@@ -10,13 +10,13 @@
 
 - Retrieves all posts by a user with the specified postId.
 - **Related Code:** See `posts.js` in the `routes` folder.
-- To Access: http://localhost:3000/api/comments?api-key=perscholas
+- To Access: http://localhost:3000/api/posts?api-key=perscholas
 
 3. `GET /comments`
 
 - Retrieves all comments.
 - **Related Code:** See `comments.js` in the `routes` folder.
-- To Access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
+- To Access: http://localhost:3000/api/comments?userId=1&api-key=perscholas
 
 4. `POST /comments`
 
