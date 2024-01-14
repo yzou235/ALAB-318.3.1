@@ -48,8 +48,38 @@ router
         if (comment) res.json({ comment, links });
         else next();
     })
-    .post((req, res) => {
-        
+    .patch((req, res, next) => {
+        const comment = comments.find((c, i) => {
+            if (c.id == req.params.id) {
+                for (const key in req.body) {
+                    comments[i][key] = req.body[key];
+                }
+                return true;
+            }
+        });
+        if (comment) res.json(comment);
+        else next();
     })
+    .delete((req, res, next) => {
+        const comment = comments.find((c, i) => {
+            if (c.id == req.params.id) {
+                comments.splice(i, 1);
+                return true;
+            }
+        });
+        if (comment) res.json(comment);
+        else next();
+    });
+
+router
+    .get("/byUser", (req, res, next) => {
+        const userId = req.query.userId;
+        if (userId) {
+            const userComments = comments.filter((comment) => comment.userId == userId);
+            res.json(userComments);
+        } else {
+            next();
+        }
+    });
 
 module.exports = router;

@@ -40,13 +40,14 @@
 
 - Used to update a comment with the specified id with a new body.
 - **Related Code:** See `comments.js` in the `routes` folder.
-- To Access: http://localhost:3000/api/comments/1?api-key=perscholas
+- Has successfully tested it in POSTMAN.
+  - raw Body in JSON: `{"content": "Updated content for comment 1, test."}`
 
 7. `DELETE /comments/:id`
 
 - Used to delete a comment with the specified id.
 - **Related Code:** See `comments.js` in the `routes` folder.
-- To Access: http://localhost:3000/api/comments/1?api-key=perscholas
+- Has successfully tested it in POSTMAN.
 
 8. `GET /comments?userId=<VALUE>`
 
