@@ -16,7 +16,14 @@ router
       },
     ];
 
-    res.json({ posts, links });
+    if (req.query.userId) {
+      const userPosts = posts.filter(post => post.userId == req.query.userId);
+      res.json({ userPosts, links });
+  } else {
+      res.json({ posts, links });
+  }
+
+    // res.json({ posts, links });
   })
   .post((req, res, next) => {
     if (req.body.userId && req.body.title && req.body.content) {
@@ -78,22 +85,22 @@ router
     else next();
   });
 
-// GET /api/posts?userId=<VALUE>
-// Retrieves all posts by a user with the specified userId.
-/** Query Parameters
- * parameters appended to the end of a URL with a `?` separator
- */
-// to access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
-router.route("/")
-  .get((req, res) => {
-    const user = users.find((u) => u.id == req.query.userId);
+// // GET /api/posts?userId=<VALUE>
+// // Retrieves all posts by a user with the specified userId.
+// /** Query Parameters
+//  * parameters appended to the end of a URL with a `?` separator
+//  */
+// // to access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
+// router.route("/")
+//   .get((req, res) => {
+//     const user = users.find((u) => u.id == req.query.userId);
 
-    if (user) {
-      const userPosts = posts.filter((post) => post.userId == req.query.userId);
-      res.json(userPosts);
-    } else {
-      next();
-    }
-  });
+//     if (user) {
+//       const userPosts = posts.filter((post) => post.userId == req.query.userId);
+//       res.json(userPosts);
+//     } else {
+//       next();
+//     }
+//   });
 
 module.exports = router;

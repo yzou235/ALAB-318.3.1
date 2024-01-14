@@ -9,8 +9,14 @@ router
     .route("/") // in index.js, we already set prefix "/api/comments"
     // GET /comments
     .get((req, res) => {
-        console.log("GET /comments route accessed");
-        res.json(comments);
+        // console.log("GET /comments route accessed");
+        // res.json(comments);
+        if (req.query.userId) {
+            const userComments = comments.filter(comment => comment.userId == req.query.userId);
+            res.json(userComments);
+        } else {
+            res.json(comments);
+        }
     })
     // POST /comments
     .post((req, res) => {
@@ -71,15 +77,15 @@ router
         else next();
     });
 
-router
-    .get("/byUser", (req, res, next) => {
-        const userId = req.query.userId;
-        if (userId) {
-            const userComments = comments.filter((comment) => comment.userId == userId);
-            res.json(userComments);
-        } else {
-            next();
-        }
-    });
+// router
+//     .get("/byUser", (req, res, next) => {
+//         const userId = req.query.userId;
+//         if (userId) {
+//             const userComments = comments.filter((comment) => comment.userId == userId);
+//             res.json(userComments);
+//         } else {
+//             next();
+//         }
+//     });
 
 module.exports = router;

@@ -52,6 +52,9 @@
 8. `GET /comments?userId=<VALUE>`
 
 - Retrieves comments by the user with the specified userId.
+- **Related Code:** See `comments.js` in the `routes` folder.
+  - used if statement and query parameter in the root route
+- To Access: http://localhost:3000/api/comments?userId=1&api-key=perscholas
 
 9. `GET /comments?postId=<VALUE>`
 
