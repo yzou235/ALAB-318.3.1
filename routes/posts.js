@@ -85,22 +85,20 @@ router
     else next();
   });
 
-// // GET /api/posts?userId=<VALUE>
-// // Retrieves all posts by a user with the specified userId.
-// /** Query Parameters
-//  * parameters appended to the end of a URL with a `?` separator
-//  */
-// // to access: http://localhost:3000/api/posts?userId=1&api-key=perscholas
-// router.route("/")
-//   .get((req, res) => {
-//     const user = users.find((u) => u.id == req.query.userId);
-
-//     if (user) {
-//       const userPosts = posts.filter((post) => post.userId == req.query.userId);
-//       res.json(userPosts);
-//     } else {
-//       next();
-//     }
-//   });
+router 
+  .get("/:id/comments", (req, res, next) => {
+    const user = users.find(u => u.id == req.params.id);
+    if (user) {    
+      const postComments = comments.filter(comment => comment.postId == req.params.id);
+      if (req.query.userID) {
+        const postCommentsByUser = postComments.filter([postComment => postComment.userId == req.query.userID]);
+        res.json(postCommentsByUser);
+      } else {
+        res.json(postComments);
+      }
+    } else {
+      next();
+    }
+  })
 
 module.exports = router;

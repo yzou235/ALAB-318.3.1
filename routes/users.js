@@ -97,5 +97,21 @@ router
     }
   });
 
+router
+  .route("/:id/comments")
+  .get((req, res, next) => {
+    const user = users.find(u => u.id == req.params.id);
+    if (user) {
+      const userComments = comments.filter(comment => comment.userId == req.params.id);
+      if (req.query.postId) {
+        const userCommentsByPost = userComments.filter(userComment => userComment.postId == req.query.postId);
+        res.json(userCommentsByPost);
+      } else {
+        res.json(userComments);
+      }
+    } else {
+      next();
+    }
+  });
 
 module.exports = router;
