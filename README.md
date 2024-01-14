@@ -1,4 +1,4 @@
-## ALAB 318.3.1: Expanding a RESTfil API
+## ALAB 318.3.1: Expanding a RESTful API
 
 ### 1. `GET /api/users/:id/posts`
 
